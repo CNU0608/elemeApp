@@ -1,0 +1,66 @@
+@import "./color.styl"
+
+// 移动端1像素css样式还原
+border-b()
+	position relative
+	&:after
+		display block
+		position absolute
+		width 100%
+		left 0
+		bottom 0
+		border-bottom 1px solid $borderColor
+		content ' '
+		
+border-l()
+	position relative
+	&:before
+		display block
+		position absolute
+		width 100%
+		top 0
+		left 0
+		border-left 1px solid $borderColor
+		content ' '
+		
+border-t()
+	position relative
+	&:before
+		display block
+		position absolute
+		width 100%
+		top 0
+		left 0
+		border-top 1px solid $borderColor
+		content ' '
+
+// 禁用border-bottom使用
+border-bottom-none()
+	&:after
+		display none
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)
+	.border-x-1px
+		&:after, &:before
+			-webkit-transform scaleX(.7)
+			transform scaleX(.7)
+	.border-y-1px
+		&:after, &:before
+			-webkit-transform scaleY(.7)
+			transform scaleY(.7)
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+	.border-x-1px
+		&:after, &:before
+			-webkit-transform scaleX(.5)
+			transform scaleX(.5)
+	.border-y-1px
+		&:after, &:before
+			-webkit-transform scaleY(.5)
+			transform scaleY(.5)
+
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+	.border-x-1px
+		&:after, &:before
+			-webkit-transform scaleX(.34)
+			transform scaleX(.34)
